@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
+  <%=link_to 'Friend app', root_path,class:"navbar-brand" %>
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Rashad's Friends App</a> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0t  ">
+    <ul class="nav justify-content-center">
+    <ul class="nav nav-tabs">
+        <li class="nav-item ">
+          <%=link_to 'About', home_about_path,class:"nav-link" %>
+          <!-- <a class="nav-link" href="#">about</a> -->
+      
+
+       
+        <% if model_signed_in? %>
+
+
+        <li>
+          <li class="nav-item">
+          <%=link_to 'New Friend', new_friend_path,class:"nav-link" %>
+        
+        </li>
+        <li class="nav-item">
+          <%=link_to 'Show Friends', friends_path,class:"nav-link" %>
+        
+        </li>
+
+        </li>
+
+         <li class="nav-item">
+          <%=link_to 'Edit User', edit_model_registration_path, class:"nav-link" %>
+        
+        </li>
+
+        <li class="nav-item">
+          <%=link_to 'Sign Out', destroy_model_session_path, method: :delete, class:"nav-link" %>
+        
+        </li>
+
+
+
+        <%else %>
+  
+          <li>
+          <li class="nav-item">
+          <%=link_to 'New Friend', new_friend_path,class:"nav-link" %>
+        
+        </li>
+  
+
+        <li>
+          <%=link_to 'Sign Up', new_model_registration_path,class:"nav-link" %>
+        
+        </li>
+
+          <li>
+          <%=link_to 'Sign In', model_session_path,class:"nav-link" %>
+        
+    
+</ul>
+
+<% end %>
+<!--
+
+        <li class="nav-item dropdown">
+          
+
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Friends Options
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <li>
+            <a class="dropdown-item" href="#">Action</a> 
+             <%=link_to 'Friends', friends_path,class:"dropdown-item" %>
+
+            </li>
+            <li>
+             <%=link_to 'New Friend', new_friend_path,class:"dropdown-item" %>
+
+            </li>
+            <li><hr class="dropdown-divider"></li>
+                  <li>
+      
+
+            </li>    -->
+        
+
+            <!-- <li><a class="dropdown-item" href="#">Another action</a></li> 
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+          </ul>
+          <br>
+
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">rashadGODDard.inc</a>
+        </li>
+      </ul>
+   
+    </div>
+  </div>
+</nav>
