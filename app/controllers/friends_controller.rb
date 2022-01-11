@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
   before_action :set_friend, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_model!, except:[:index,:show]
-  before_action :correct_model, only: [:edit, :updtae, :destory]
+  #before_action :correct_model, only: [:edit, :updtae, :destory]
   # GET /friends
   # GET /friends.json
   def index
@@ -15,8 +15,8 @@ class FriendsController < ApplicationController
 
   # GET /friends/new
   def new
-    #@friend = Friend.new
-    @friend = current_model.friends.build
+    @friend = Friend.new
+    #friend = current_model.friends.build
   end
 
   # GET /friends/1/edit
@@ -26,8 +26,8 @@ class FriendsController < ApplicationController
   # POST /friends
   # POST /friends.json
   def create
-    #@friend = Friend.new(friend_params)
-     @friend = current_model.friends.build (friend_params)
+    @friend = Friend.new(friend_params)
+     #@friend = current_model.friends.build (friend_params)
     respond_to do |format|
       if @friend.save
         format.html { redirect_to @friend, notice: 'Friend was successfully created.' }
@@ -63,10 +63,10 @@ class FriendsController < ApplicationController
     end
   end
 
-  def correct_user
-    @friend = current_model.friends.find_by(id: params [:id])
-    redirect_to friends_path, notice: "NOT AURTHORIZED TO EDIT THIS FRINDE" if @friend.nil?
-
+  #def correct_user
+   # @friend = current_model.friends.find_by(id: params [:id]
+    #redirect_to friends_path, notice: "NOT AURTHORIZED TO EDIT THIS FRINDE" if @friend.nil?
+ #end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -76,6 +76,6 @@ class FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.require(:friend).permit(:full_name, :email, :twitter, :phone_number, :current_model_id)
+      params.require(:friend).permit(:full_name, :email, :twitter, :phone_number)#:current_model_id)
     end
 end
